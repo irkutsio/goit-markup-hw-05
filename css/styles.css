@@ -16,7 +16,8 @@
   --filter-btn-color: #f4f4fd;
   --main-backgroud-color: #ffffff;
   --current-link-color: #404bbf;
-  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --trans-duration: 250ms;
+  --trans-tf: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 html {
@@ -123,6 +124,10 @@ header {
 
   padding-top: 24px;
   padding-bottom: 24px;
+
+  transition-property: color;
+  transition-duration: var(--trans-duration);
+  transition-timing-function: var(--trans-tf);
 }
 
 .nav-item:hover,
@@ -161,6 +166,10 @@ header {
   letter-spacing: 0.02em;
 
   margin-left: auto;
+
+  transition-property: color;
+  transition-duration: var(--trans-duration);
+  transition-timing-function: var(--trans-tf);
 }
 
 .auth-list + .auth-list {
@@ -222,8 +231,11 @@ header {
   min-width: 170px;
   height: 51px;
   border: transparent;
-
   margin-top: 48px;
+
+  transition-property: background-color, box-shadow;
+  transition-duration: var(--trans-duration);
+  transition-timing-function: var(--trans-tf);
 }
 
 .hero-btn:hover,
@@ -370,6 +382,15 @@ section {
   height: 100%;
   border-radius: 50%;
   background-color: var(--active-color);
+
+  transition-property: background-color;
+  transition-duration: var(--trans-duration);
+  transition-timing-function: var(--trans-tf);
+}
+
+.social-list-link:hover,
+social-list-link:focus {
+  background-color: var(--current-link-color);
 }
 
 .social-list-icon {
@@ -399,12 +420,16 @@ section {
   border: 1px solid #8e8f99;
   color: #8e8f99;
   border-radius: 4px;
+
+  transition-property: color, border-color;
+  transition-duration: var(--trans-duration);
+  transition-timing-function: var(--trans-tf);
 }
 
 .customers-logo-link:hover,
 .customers-logo-link:focus {
-  color: var(--active-color);
-  border-color: #4d5ae5;
+  color: var(--current-link-color);
+  border-color: var(--current-link-color);
 }
 
 .logo-icon {
@@ -473,6 +498,10 @@ footer .logo {
   height: 100%;
   border-radius: 50%;
   background-color: var(--text-color);
+
+  transition-property: background-color;
+  transition-duration: var(--trans-duration);
+  transition-timing-function: var(--trans-tf);
 }
 
 .footer-social-list-link:hover,
@@ -504,10 +533,10 @@ footer .logo {
   padding: 8px 16px;
   border: 1px solid #e7e9fc;
   border-radius: 4px;
-}
 
-.prodjects-item:not(:last-child) {
-  margin-right: 24px;
+  transition-property: color, background-color, border-color, box-shadow;
+  transition-duration: var(--trans-duration);
+  transition-timing-function: var(--trans-tf);
 }
 
 .filter-btn:hover,
@@ -521,6 +550,10 @@ footer .logo {
 
 .filter-btn:active {
   background-color: var(--current-link-color);
+}
+
+.prodjects-item:not(:last-child) {
+  margin-right: 24px;
 }
 
 .projects-nav {
@@ -553,6 +586,10 @@ footer .logo {
 .project-card {
   display: block;
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08);
+
+  transition-property: box-shadow;
+  transition-duration: var(--trans-duration);
+  transition-timing-function: var(--trans-tf);
 }
 
 .project-card:hover,
@@ -569,11 +606,15 @@ footer .logo {
   height: 100%;
 
   background: rgba(46, 47, 66, 0.4);
+
+  transition-property: opacity;
+  transition-duration: 2s;
 }
 
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
+  visibility: hidden;
 }
 
 .modal {
