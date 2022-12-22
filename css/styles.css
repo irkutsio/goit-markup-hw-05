@@ -572,6 +572,7 @@ footer .logo {
 
 .project-descr {
   display: block;
+
   padding: 32px 0 32px 16px;
   width: 360px;
 }
@@ -607,8 +608,8 @@ footer .logo {
 
   background: rgba(46, 47, 66, 0.4);
 
-  transition-property: opacity;
-  transition-duration: 2s;
+  transition-property: opacity, visibility;
+  transition-duration: 500ms;
 }
 
 .backdrop.is-hidden {
@@ -632,6 +633,11 @@ footer .logo {
   border-radius: 4px;
 }
 
+.backdrop.is-hidden .modal {
+  transform: rotate(60deg);
+  transition-duration: 1000ms;
+}
+
 .btn-close {
   display: flex;
   position: absolute;
@@ -644,4 +650,38 @@ footer .logo {
   border: 1px solid rgba(0, 0, 0, 0.1);
 
   cursor: pointer;
+}
+
+.thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay-text {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+
+  margin: 0;
+
+  color: var(--background-color);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 360px;
+  height: 300px;
+  padding: 40px 32px;
+  background-color: var(--active-color);
+
+  transform: translateY(100%);
+  transition-property: transform;
+  transition-duration: var(--trans-duration);
+}
+
+.project-card:hover .overlay {
+  transform: translateY(0);
 }
