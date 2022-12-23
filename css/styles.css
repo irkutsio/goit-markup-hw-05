@@ -599,6 +599,37 @@ footer .logo {
     0px 2px 1px rgba(46, 47, 66, 0.08);
 }
 
+.overlay-text {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+
+  margin: 0;
+
+  color: var(--background-color);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  padding: 40px 32px;
+  background-color: var(--active-color);
+
+  transform: translateY(100%);
+  transition-property: transform;
+  transition-duration: var(--trans-duration);
+}
+
+.project-card:hover .overlay {
+  transform: translateY(0);
+}
+
+/* modal */
+
 .backdrop {
   position: fixed;
   top: 0;
@@ -609,7 +640,8 @@ footer .logo {
   background: rgba(46, 47, 66, 0.4);
 
   transition-property: opacity, visibility;
-  transition-duration: 500ms;
+  transition-duration: var(--trans-duration);
+  transition-timing-function: var(--trans-tf);
 }
 
 .backdrop.is-hidden {
@@ -618,11 +650,14 @@ footer .logo {
   visibility: hidden;
 }
 
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.5);
+}
+
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
 
   width: 408px;
   height: 576px;
@@ -631,11 +666,12 @@ footer .logo {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-}
 
-.backdrop.is-hidden .modal {
-  transform: rotate(60deg);
-  transition-duration: 1000ms;
+  transform: translate(-50%, -50%) scale(1);
+
+  transition-property: transform;
+  transition-duration: var(--trans-duration);
+  transition-timing-function: var(--trans-tf);
 }
 
 .btn-close {
@@ -655,33 +691,4 @@ footer .logo {
 .thumb {
   position: relative;
   overflow: hidden;
-}
-
-.overlay-text {
-  font-size: 16px;
-  line-height: 24px;
-  letter-spacing: 0.02em;
-
-  margin: 0;
-
-  color: var(--background-color);
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  width: 360px;
-  height: 300px;
-  padding: 40px 32px;
-  background-color: var(--active-color);
-
-  transform: translateY(100%);
-  transition-property: transform;
-  transition-duration: var(--trans-duration);
-}
-
-.project-card:hover .overlay {
-  transform: translateY(0);
 }
