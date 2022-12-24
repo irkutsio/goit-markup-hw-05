@@ -624,7 +624,8 @@ footer .logo {
   transition-duration: var(--trans-duration);
 }
 
-.project-card:hover .overlay {
+.project-card:hover .overlay,
+.project-card:focus .overlay {
   transform: translateY(0);
 }
 
@@ -686,6 +687,17 @@ footer .logo {
   border: 1px solid rgba(0, 0, 0, 0.1);
 
   cursor: pointer;
+}
+
+.btn-close:hover,
+.btn-close:focus {
+  background-color: var(--current-link-color);
+  border-color: var(--current-link-color);
+  fill: var(--main-backgroud-color);
+
+  transition-property: background-color, border-color, fill;
+  transition-duration: var(--trans-duration);
+  transition-timing-function: var(--trans-tf);
 }
 
 .thumb {
